@@ -1,0 +1,47 @@
+{
+  "name": "advertisers-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development ts-node-dev --files --respawn src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miroshnykov/advertisers-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miroshnykov/advertisers-api/issues"
+  },
+  "homepage": "https://github.com/miroshnykov/advertisers-api#readme",
+  "dependencies": {
+    "apollo-server-core": "^3.5.0",
+    "apollo-server-express": "^2.25.3",
+    "cookie-parser": "^1.4.6",
+    "cross-env": "^7.0.3",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "graphql": "^15.8.0",
+    "mysql": "^2.18.1",
+    "ts-node-dev": "^1.1.8",
+    "type-graphql": "^1.1.1",
+    "typeorm": "^0.2.41"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.5",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.4"
+  },
+  "copyFiles": [
+    {
+      "from": "dist/src/**",
+      "to": "dist/"
+    }
+  ]
+}
