@@ -11,7 +11,7 @@ import { GqlContext } from '../types/GqlContext';
 export class OffersResolver {
 
   @Query(() => [Offer], { nullable: true })
-  async Offers(
+  async getOffers(
     @Ctx() { payload }: GqlContext,
   ): Promise<Offer[]> {
     return Offer.find();
