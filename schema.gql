@@ -28,7 +28,14 @@ type Landing {
   url: String!
 }
 
+type LoginResponse {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
 type Mutation {
+  login(email: String!, password: String!): LoginResponse
   register(data: RegisterInput!): User!
 }
 

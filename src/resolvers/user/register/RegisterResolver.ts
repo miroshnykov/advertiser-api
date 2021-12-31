@@ -1,8 +1,8 @@
 import { Arg, Mutation, Resolver } from 'type-graphql';
 import bcrypt from 'bcrypt';
 import { getManager } from 'typeorm';
-import { User } from '../../entity/User';
-import { UserStatus } from '../../constants/UserStatus';
+import { User } from '../../../entity/User';
+import { UserStatus } from '../../../constants/UserStatus';
 import { RegisterInput } from './RegisterInput';
 
 
