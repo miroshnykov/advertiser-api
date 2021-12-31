@@ -28,6 +28,17 @@ type Landing {
   url: String!
 }
 
+type LoginResponse {
+  accessToken: String!
+  refreshToken: String!
+  user: User!
+}
+
+type Mutation {
+  login(email: String!, password: String!): LoginResponse
+  register(data: RegisterInput!): User!
+}
+
 type Offer {
   advertiser_manager: String!
   caps: OfferCap!
@@ -83,13 +94,21 @@ type OfferCustomPayin {
 }
 
 type Query {
-  Offers: [Offer!]
   currentUser: User
   getOffer(id: ID!): Offer
+  getOffers: [Offer!]
+}
+
+input RegisterInput {
+  email: String!
+  name: String!
+  password: String!
+  repeatPassword: String!
 }
 
 """The User model"""
 type User {
+  email: String!
   id: ID!
   name: String!
 }
