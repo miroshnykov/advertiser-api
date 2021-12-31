@@ -12,7 +12,10 @@ export class RefreshResolver {
   async refresh(
     @Arg('refresh_token') refresh: string,
   ): Promise<RefreshResponse | null> {
+    console.log('refresh:', refresh)
+    console.log('process.env.REFRESH_TOKEN_SECRET:', process.env.REFRESH_TOKEN_SECRET)
     const payload = verify(refresh, process.env.REFRESH_TOKEN_SECRET!) as { userId: number };
+    console.log('payload:', payload)
     if (!payload) {
       throw new Error('Wrong payload.');
     }

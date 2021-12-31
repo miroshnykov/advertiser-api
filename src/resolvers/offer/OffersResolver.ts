@@ -4,8 +4,8 @@ import {
   Resolver,
   UseMiddleware,
 } from 'type-graphql';
-import { Offer } from '../entity/Offer';
-import { GqlContext } from '../types/GqlContext';
+import { Offer } from '../../entity/Offer';
+import { GqlContext } from '../../types/GqlContext';
 
 @Resolver()
 export class OffersResolver {
