@@ -1,7 +1,7 @@
 import {
   Ctx, Query, Resolver, UseMiddleware,
 } from 'type-graphql';
-import { User } from '../entity/User';
+import { User } from '../../entity/User';
 
 @Resolver()
 export class UserResolver {
@@ -10,8 +10,8 @@ export class UserResolver {
     @Ctx() { payload }:any,
   ): Promise<User | null> {
     console.log('payload:', payload)
-    // const user = await User.findOne(payload!.userId);
-    const user = await User.findOne(2492);
+    const user = await User.findOne(payload!.userId);
+    // const user = await User.findOne(2492);
 
     if (!user) {
       return null;

@@ -1,7 +1,7 @@
 import {
   Arg, ID, Query, Resolver, UseMiddleware,
 } from 'type-graphql';
-import { Offer } from '../entity/Offer';
+import { Offer } from '../../entity/Offer';
 
 @Resolver()
 export class OfferResolver {

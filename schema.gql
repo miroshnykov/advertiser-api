@@ -36,6 +36,7 @@ type LoginResponse {
 
 type Mutation {
   login(email: String!, password: String!): LoginResponse
+  refresh(refresh_token: String!): RefreshResponse
   register(data: RegisterInput!): User!
 }
 
@@ -97,6 +98,11 @@ type Query {
   currentUser: User
   getOffer(id: ID!): Offer
   getOffers: [Offer!]
+}
+
+type RefreshResponse {
+  accessToken: String!
+  refreshToken: String!
 }
 
 input RegisterInput {
