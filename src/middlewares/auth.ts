@@ -19,6 +19,7 @@ export const auth: MiddlewareFn<GqlContext> = (
     if (token[0] !== 'Bearer') {
       throw new AuthenticationError('Bearer token not valid');
     }
+    console.log('auth payload:', payload)
     context.payload = payload as any;
   } catch (error) {
     console.error(error);

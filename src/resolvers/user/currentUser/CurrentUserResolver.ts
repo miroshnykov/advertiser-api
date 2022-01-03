@@ -12,7 +12,6 @@ export class CurrentUserResolver {
   async currentUser(
     @Ctx() { payload }: GqlContext,
   ): Promise<User | null> {
-    console.log('payload:', payload)
     const user = await User.findOne(payload!.userId);
 
     if (!user) {
