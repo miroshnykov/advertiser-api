@@ -1,7 +1,6 @@
 import { Field, InputType } from 'type-graphql';
 import { IsEmail, Length } from 'class-validator';
 import { Match } from '../../../utils/custom-validations/match';
-import { ProfileData } from './ProfileData';
 
 @InputType()
 export class RegisterInput {

@@ -22,6 +22,6 @@ export class Manager extends BaseEntity {
   last_name!: string;
 
   @Field()
-  @Column('varchar', { length: 50})
+  @Column('varchar', { length: 50 })
   email!: string;
 }

@@ -1,10 +1,10 @@
+import consola from 'consola';
 import { Arg, Mutation, Resolver } from 'type-graphql';
 import bcrypt from 'bcrypt';
 import { getManager } from 'typeorm';
 import { User } from '../../../entity/User';
 import { UserStatus } from '../../../constants/UserStatus';
 import { RegisterInput } from './RegisterInput';
-
 
 @Resolver()
 export class RegisterResolver {
@@ -28,12 +28,12 @@ export class RegisterResolver {
     try {
       await getManager().transaction(async (transactionalEntityManager) => {
         const advertiser = await transactionalEntityManager.save(user);
-        console.log(advertiser);
+        consola.info(advertiser);
       });
 
       return user;
     } catch (error: any) {
-      console.error(error.message, error.stack);
+      consola.error(error.message, error.stack);
       throw error;
     }
   }

@@ -1,13 +1,13 @@
 import { ObjectType, Field, ID } from 'type-graphql';
 import {
-  BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn,
+  BaseEntity, Column, Entity, PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { UserStatus } from '../constants/UserStatus';
 
 @ObjectType({ description: 'The User model' })
 @Entity('sfl_advertisers')
-export class User extends BaseEntity{
+export class User extends BaseEntity {
   @Field(() => ID)
   @PrimaryGeneratedColumn()
   id!: number;
@@ -58,6 +58,4 @@ export class User extends BaseEntity{
 
   @Column('timestamp', { onUpdate: 'CURRENT_TIMESTAMP()' })
   date_updated!: string;
-
 }
-

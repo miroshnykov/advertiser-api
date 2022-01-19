@@ -1,11 +1,12 @@
-import {verify} from 'jsonwebtoken';
-import {MiddlewareFn, NextFn, ResolverData} from 'type-graphql';
-import {GqlContext} from '../types/GqlContext';
-import {AuthenticationError} from 'apollo-server-express';
+import consola from 'consola';
+import { verify } from 'jsonwebtoken';
+import { MiddlewareFn, NextFn, ResolverData } from 'type-graphql';
+import { AuthenticationError } from 'apollo-server-express';
+import { GqlContext } from '../types/GqlContext';
 
 export const auth: MiddlewareFn<GqlContext> = (
-  {context}: ResolverData<GqlContext>,
-  next: NextFn
+  { context }: ResolverData<GqlContext>,
+  next: NextFn,
 ) => {
   const authorisation = context.req.headers.authorization;
 
@@ -19,10 +20,10 @@ export const auth: MiddlewareFn<GqlContext> = (
     if (token[0] !== 'Bearer') {
       throw new AuthenticationError('Bearer token not valid');
     }
-    console.log('auth payload:', payload)
+    consola.info('auth payload:', payload);
     context.payload = payload as any;
   } catch (error) {
-    console.error(error);
+    consola.error(error);
     throw new AuthenticationError('Not authorized');
   }
 

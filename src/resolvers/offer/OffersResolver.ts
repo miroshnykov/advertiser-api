@@ -1,3 +1,4 @@
+import consola from 'consola';
 import {
   Ctx,
   Query,
@@ -6,7 +7,7 @@ import {
 } from 'type-graphql';
 import { Offer } from '../../entity/Offer';
 import { GqlContext } from '../../types/GqlContext';
-import {auth} from "../../middlewares/auth";
+import { auth } from '../../middlewares/auth';
 
 @Resolver()
 export class OffersResolver {
@@ -15,6 +16,7 @@ export class OffersResolver {
   async getOffers(
     @Ctx() { payload }: GqlContext,
   ): Promise<Offer[]> {
+    consola.info(payload);
     return Offer.find();
   }
 }

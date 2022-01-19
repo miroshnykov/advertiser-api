@@ -1,5 +1,5 @@
 import {
-  Arg, ID, Query, Resolver, UseMiddleware,
+  Arg, ID, Query, Resolver,
 } from 'type-graphql';
 import { Offer } from '../../entity/Offer';
 

@@ -21,6 +21,6 @@ export class OfferGeo extends BaseEntity {
   @Column('int', { width: 11 })
   date_added!: number;
 
-  @Column('timestamp', {onUpdate: 'current_timestamp()'})
+  @Column('timestamp', { onUpdate: 'current_timestamp()' })
   date_updated!: string;
 }

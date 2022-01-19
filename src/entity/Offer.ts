@@ -148,6 +148,7 @@ export class Offer extends BaseEntity {
       },
     });
     return landings.map((lp) => {
+      // eslint-disable-next-line no-param-reassign
       lp.isDefault = lp.id === this.sfl_offer_landing_page_id;
       return lp;
     });
@@ -190,26 +191,25 @@ export class Offer extends BaseEntity {
         cap.end_date = null;
       }
       return cap;
-    } else {
-      const newCap = OfferCap.create();
-      newCap.enabled = 0;
-      newCap.clicks_day = 0;
-      newCap.clicks_week = 0;
-      newCap.clicks_month = 0;
-      newCap.clicks_redirect_offer_use_default = false;
-      newCap.clicks_redirect_offer_id = 0;
-
-      newCap.sales_day = 0;
-      newCap.sales_week = 0;
-      newCap.sales_month = 0;
-      newCap.sales_redirect_offer_use_default = false;
-      newCap.sales_redirect_offer_id = 0;
-
-      newCap.use_start_end_date = false;
-      newCap.start_date = null;
-      newCap.end_date = null;
-      return newCap;
     }
+    const newCap = OfferCap.create();
+    newCap.enabled = 0;
+    newCap.clicks_day = 0;
+    newCap.clicks_week = 0;
+    newCap.clicks_month = 0;
+    newCap.clicks_redirect_offer_use_default = false;
+    newCap.clicks_redirect_offer_id = 0;
+
+    newCap.sales_day = 0;
+    newCap.sales_week = 0;
+    newCap.sales_month = 0;
+    newCap.sales_redirect_offer_use_default = false;
+    newCap.sales_redirect_offer_id = 0;
+
+    newCap.use_start_end_date = false;
+    newCap.start_date = null;
+    newCap.end_date = null;
+    return newCap;
   }
 
   @Field(() => String)
@@ -222,7 +222,7 @@ export class Offer extends BaseEntity {
     return OfferCustomPayin.find({
       where: {
         sfl_offer_id: this.id,
-      }
+      },
     });
   }
 

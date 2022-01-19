@@ -1,3 +1,4 @@
+import consola from 'consola';
 import { sign } from 'jsonwebtoken';
 import { User } from '../entity/User';
 
@@ -10,7 +11,7 @@ const reqs = [
 ];
 const mustBeSet = reqs.filter((r) => !process.env[r]);
 if (mustBeSet.length > 0) {
-  console.error(`${mustBeSet.join(', ')} must be set`);
+  consola.error(`${mustBeSet.join(', ')} must be set`);
 }
 
 export const createAccessToken = (user: User): string => sign(

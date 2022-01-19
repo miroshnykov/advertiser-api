@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import { Field, InputType } from 'type-graphql';
 import { Length } from 'class-validator';
 
@@ -23,15 +24,15 @@ export class ProfileData {
   @Field()
   businessName!: string;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   topCountries?: string;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   offeredProducts?: string;
 
-  @Field(() => [String], {nullable: true})
+  @Field(() => [String], { nullable: true })
   otherNetworks?: string[];
 
-  @Field(() => [WebsiteData], {nullable: true})
+  @Field(() => [WebsiteData], { nullable: true })
   websites?: WebsiteData[];
 }

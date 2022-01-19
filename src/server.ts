@@ -1,8 +1,9 @@
+import consola from 'consola';
 import 'reflect-metadata';
 import 'dotenv/config';
 import { ApolloServer, ApolloServerExpressConfig } from 'apollo-server-express';
 import { GraphQLSchema } from 'graphql';
-import Express, { Response } from 'express';
+import Express from 'express';
 import { createConnection } from 'typeorm';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
@@ -17,13 +18,12 @@ declare module 'express-session' {
   }
 }
 
-
 async function main() {
   const schema = await createSchema();
   try {
     await createConnection();
   } catch (error: any) {
-    console.error(error.message, error.stack);
+    consola.error(error.message, error.stack);
     process.exit(1);
   }
   const serverConfig: { schema: GraphQLSchema; context: any } = {
@@ -46,14 +46,14 @@ async function main() {
   try {
     server.applyMiddleware({ app, path: '/graphql' });
   } catch (error: any) {
-    console.error(error.message, error.stack);
+    consola.error(error.message, error.stack);
   }
   const PORT = process.env.NODE_PORT || 4009;
   app.listen(PORT, () => {
-    console.info(`server is running on PORT http://localhost:${PORT}${server.graphqlPath}`);
+    consola.info(`server is running on PORT http://localhost:${PORT}${server.graphqlPath}`);
   });
 }
 
 main().catch((error) => {
-  console.log(error, 'error');
+  consola.log(error, 'error');
 });

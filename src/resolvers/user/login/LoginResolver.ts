@@ -12,7 +12,7 @@ export class LoginResolver {
   @Mutation(() => LoginResponse, { nullable: true })
   async login(
     @Arg('email') email: string,
-    @Arg('password') password: string,
+      @Arg('password') password: string,
   ): Promise<LoginResponse | null> {
     const user = await User.findOne({ where: { email } });
     if (!user) {

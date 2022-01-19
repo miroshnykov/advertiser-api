@@ -1,8 +1,9 @@
+// eslint-disable-next-line max-classes-per-file
 import {
   BaseEntity, Column, Entity, PrimaryGeneratedColumn,
 } from 'typeorm';
 import {
-  Field, InputType, Int, ObjectType,
+  Field, InputType, ObjectType,
 } from 'type-graphql';
 import { RedirectStatus } from '../constants/RedirectStatus';
 
@@ -68,11 +69,11 @@ export class OfferCap extends BaseEntity {
   sales_redirect_offer_use_default!: boolean;
 
   // Dates cap
-  @Field(() => Number, {nullable: true})
+  @Field(() => Number, { nullable: true })
   @Column('timestamp', { nullable: true })
   start_date!: Date | null;
 
-  @Field(() => Number, {nullable: true})
+  @Field(() => Number, { nullable: true })
   @Column('timestamp', { nullable: true })
   end_date!: Date | null;
 
@@ -107,10 +108,10 @@ export class OfferCapInput {
   @Field()
   sales_month!: number;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   start_date!: number;
 
-  @Field({nullable: true})
+  @Field({ nullable: true })
   end_date!: number;
 
   @Field()
